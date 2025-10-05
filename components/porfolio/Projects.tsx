@@ -8,7 +8,7 @@ const projects = [
     description:
       "A web app that lets users generate QR codes for any URL and download the image easily. Simple, fast, and user-friendly.",
     tech: ["React.js", , "Express.js"],
-    image: "/qrcode.png",
+    image: "/qrCode.png",
     github: "https://github.com/AkilAntony/QR-code-generator",
     live: "https://qr-code-generator-beta-brown.vercel.app/",
     featured: true,
