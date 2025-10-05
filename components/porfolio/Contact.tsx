@@ -40,7 +40,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className=" grid md:grid-cols-4  gap-6 mb-8"
+              className=" grid md:grid-cols-4 sm:grid-cols-2 gap-6 mb-8"
             >
               <motion.a
                 href="mailto:akhilal778@gmail.com"
