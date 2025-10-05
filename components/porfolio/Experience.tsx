@@ -1,4 +1,4 @@
-import React from "react";
+                                      import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase, Calendar, GraduationCap, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -18,8 +18,6 @@ const experiences = [
       "Developed CRM and flight booking modules using TBO (Travel Boutique Online) API",
     ],
   },
-
- 
 
   {
     title: "Associate Graduate",
@@ -54,6 +52,13 @@ const experiences = [
 ];
 
 const education = [
+    {
+    degree: "Web Development Bootcamp",
+    school: "Udemy",
+    period: "2024",
+    location: "Online",
+    gpa: "Certificate of Excellence",
+  },
   {
     degree: "Bachelor of Engineering in Computer Science",
     school: "Rohini College of Engineering and Technology",
@@ -61,13 +66,7 @@ const education = [
     location: "Kanyakumari, Tamil Nadu, India",
     gpa: "7.25/10",
   },
-  {
-    degree: "Frontend Development Bootcamp",
-    school: "Code Academy Pro",
-    period: "2019",
-    location: "Online",
-    gpa: "Certificate of Excellence",
-  },
+
 ];
 
 const Experience = () => {
@@ -141,10 +140,16 @@ const Experience = () => {
                       {exp.achievements.map((achievement, i) => (
                         <div
                           key={i}
-                          className="flex items-center text-gray-300 text-sm"
+                          className="flex items-start   text-gray-300 text-sm"
                         >
-                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></div>
+                          <div className="  h-full self-stretch">
+                            <div className="w-1.5 h-1.5 mt-2 bg-blue-400 rounded-full mr-3"></div>
+                          </div>
+                          
+                          <div className="flex items-start  ">
                           {achievement}
+                          </div>
+                          
                         </div>
                       ))}
                     </div>
@@ -162,7 +167,7 @@ const Experience = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6"
+                className="backdrop-blur-sm bg-white/5   rounded-2xl p-6  shadow-[inset_0_0_2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)] p-6"
               >
                 <div className="flex items-start space-x-4">
                   <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl">
@@ -175,12 +180,12 @@ const Experience = () => {
                     <p className="text-purple-400 font-semibold mb-2">
                       {edu.school}
                     </p>
-                    <div className="flex items-center space-x-4 text-gray-400 text-sm mb-2">
+                    <div className="flex items-center flex-wrap  gap-3 text-gray-400 text-sm mb-2">
                       <span className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
                         {edu.period}
                       </span>
-                      <span className="flex items-center">
+                      <span className="flex items-start">
                         <MapPin className="w-4 h-4 mr-1" />
                         {edu.location}
                       </span>

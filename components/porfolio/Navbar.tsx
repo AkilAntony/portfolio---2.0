@@ -20,18 +20,16 @@ const Navbar = () => {
             Akil A L
           </motion.div>
           <div className="hidden md:flex space-x-8">
-            {["About", "Experience", "Projects", "Testimonials", "Contact"].map(
-              (item) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  whileHover={{ scale: 1.05 }}
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
-                >
-                  {item}
-                </motion.a>
-              )
-            )}
+            {["About", "Experience", "Projects", "Contact"].map((item) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                whileHover={{ scale: 1.05 }}
+                className="text-gray-300 hover:text-white transition-colors duration-300"
+              >
+                {item}
+              </motion.a>
+            ))}
           </div>
           <motion.a
             whileHover={{ scale: 1.05 }}

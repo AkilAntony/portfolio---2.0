@@ -3,46 +3,48 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
-  {
-    title: "E-Commerce Platform",
+    {
+    title: "QR Code Generator",
     description:
-      "Modern e-commerce solution with real-time inventory, payment integration, and comprehensive admin dashboard.",
-    tech: ["Next.js", "TypeScript", "Stripe", "Prisma", "Tailwind CSS"],
-    image: "/placeholder.svg?height=400&width=600&text=E-Commerce+Platform",
-    github: "#",
-    live: "#",
+      "A web app that lets users generate QR codes for any URL and download the image easily. Simple, fast, and user-friendly.",
+    tech: ["React.js", , "Express.js"],
+    image: "/qrcode.png",
+    github: "https://github.com/AkilAntony/QR-code-generator",
+    live: "https://qr-code-generator-beta-brown.vercel.app/",
     featured: true,
   },
+{
+  title: "BMI Calculator",
+  description:
+    "Simple web-based BMI calculator that allows users to input height and weight to determine their Body Mass Index with instant results and health category indication.",
+  tech: ["HTML", "CSS", "JavaScript"],
+  image: "/bmi2.png",
+  github: "https://github.com/AkilAntony/BMI-Calculator",
+  live: "https://akilantony.github.io/BMI-Calculator/",
+  featured: false,
+},
+
   {
-    title: "SaaS Dashboard",
+    title: "Image Cropper",
     description:
-      "Analytics dashboard for SaaS companies with real-time data visualization and user management.",
-    tech: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    image: "/placeholder.svg?height=400&width=600&text=SaaS+Dashboard",
-    github: "#",
-    live: "#",
+      "A web app that lets users upload, crop, and download images with a simple and responsive interface.",
+    tech: ["React", "JavaScript"],
+    image: "/imageCropper.png",
+    github: "https://github.com/AkilAntony/image-cropper",
+    live: "https://image-cropper-two.vercel.app/",
     featured: true,
   },
-  {
-    title: "Task Management App",
-    description:
-      "Collaborative task management tool with real-time updates and team collaboration features.",
-    tech: ["Vue.js", "Socket.io", "Express", "MongoDB"],
-    image: "/placeholder.svg?height=400&width=600&text=Task+Management",
-    github: "#",
-    live: "#",
-    featured: false,
-  },
-  {
-    title: "Weather Dashboard",
-    description:
-      "Beautiful weather application with location-based forecasts and interactive maps.",
-    tech: ["React", "OpenWeather API", "Mapbox", "Chart.js"],
-    image: "/placeholder.svg?height=400&width=600&text=Weather+Dashboard",
-    github: "#",
-    live: "#",
-    featured: false,
-  },
+
+  // {
+  //   title: "Weather Dashboard",
+  //   description:
+  //     "Beautiful weather application with location-based forecasts and interactive maps.",
+  //   tech: ["React", "OpenWeather API", "Mapbox", "Chart.js"],
+  //   image: "/placeholder.svg?height=400&width=600&text=Weather+Dashboard",
+  //   github: "#",
+  //   live: "#",
+  //   featured: false,
+  // },
 ];
 
 const Projects = () => {
@@ -69,7 +71,6 @@ const Projects = () => {
         {/* Featured Projects */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {projects
-            .filter((p) => p.featured)
             .map((project, index) => (
               <motion.div
                 key={project.title}
@@ -86,12 +87,13 @@ const Projects = () => {
                     alt={project.title}
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                 { project.featured && <><div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-xs font-medium">
                       Featured
                     </span>
                   </div>
+                  </>}
                 </div>
 
                 <div className="p-8">
@@ -116,6 +118,7 @@ const Projects = () => {
                   <div className="flex space-x-4">
                     <motion.a
                       href={project.github}
+                      target="_blank"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="p-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl text-gray-300 hover:text-white hover:bg-white/20 transition-all duration-300"
@@ -123,6 +126,7 @@ const Projects = () => {
                       <Github className="w-5 h-5" />
                     </motion.a>
                     <motion.a
+                     target="_blank"
                       href={project.live}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -135,73 +139,8 @@ const Projects = () => {
               </motion.div>
             ))}
         </div>
-
-        {/* Other Projects */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects
-            .filter((p) => !p.featured)
-            .map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="backdrop-blur-sm bg-white/5 shadow-[inset_0_0_2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)] rounded-2xl overflow-hidden group hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 text-sm mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg text-xs text-blue-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 3 && (
-                      <span className="px-2 py-1 text-xs text-gray-400">
-                        +{project.tech.length - 3} more
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="flex space-x-3">
-                    <motion.a
-                      href={project.github}
-                      whileHover={{ scale: 1.1 }}
-                      className="p-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                    </motion.a>
-                    <motion.a
-                      href={project.live}
-                      whileHover={{ scale: 1.1 }}
-                      className="p-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg text-gray-300 hover:text-white transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </motion.a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-        </div>
+ 
+   
       </div>
     </motion.section>
   );

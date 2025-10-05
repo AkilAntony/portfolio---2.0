@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion} from "framer-motion";
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, MessageCircleMore } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -40,7 +40,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className=" grid md:grid-cols-3  gap-6 mb-8"
+              className=" grid md:grid-cols-4  gap-6 mb-8"
             >
               <motion.a
                 href="mailto:akhilal778@gmail.com"
@@ -49,7 +49,7 @@ const Contact = () => {
                 className="flex items-center space-x-3 px-8 py-4 md:w-full backdrop-blur-sm bg-white/5 shadow-[inset_0_0_2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)] rounded-2xl text-white  hover:bg-white/10 transition-all duration-300 group"
               >
                 <Mail className="w-6 h-6 group-hover:text-blue-400 transition-colors" />
-                <span className="font-medium">akhilal778@gmail.com</span>
+                <span className="font-medium">Gmail</span>
               </motion.a>
 
               <motion.a
@@ -71,7 +71,21 @@ const Contact = () => {
                 <Github className="w-6 h-6 group-hover:text-blue-400 transition-colors" />
                 <span className="font-medium">GitHub</span>
               </motion.a>
+
+
+               <motion.a
+                href="https://wa.me/7094425793"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center space-x-3 px-8 py-4 backdrop-blur-sm bg-white/5 shadow-[inset_0_0_2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)] rounded-2xl text-white hover:bg-white/10 transition-all duration-300 group"
+              >
+                <MessageCircleMore className="w-6 h-6 group-hover:text-blue-400 transition-colors"/>  
+                <span className="font-medium">Whats App </span>
+              </motion.a>
             </motion.div>
+
+            
+    
 
             {/* <motion.div
               initial={{ opacity: 0, y: 20 }}

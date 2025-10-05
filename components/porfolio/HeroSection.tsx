@@ -26,7 +26,6 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
             transition={{ duration: 0.8 }}
             className="mb-6 mt-3"
           >
-
             {/* shadow-[inset_0_0_1.2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)] */}
             <span
               className="px-4 py-2 bg-white/5 text-white shadow-[inset_0_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(31,38,135,0.37)]
@@ -68,7 +67,7 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => router.push("#about")}
+              onClick={() => router.push("#projects")}
               className="px-8 py-4 bg-gradient-to-r from-indigo-400 to-sky-400 rounded-xl text-white font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg shadow-blue-500/25"
             >
               View My Work
@@ -78,8 +77,7 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-                          className="  px-8 py-4 text-white bg-white/5 shadow-[inset_0_0_1.2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)]  rounded-xl backdrop-blur-sm  "
-
+              className="  px-8 py-4 text-white bg-white/5 shadow-[inset_0_0_1.2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)]  rounded-xl backdrop-blur-sm  "
               onClick={() => router.push("#contact")}
             >
               Get In Touch
@@ -111,13 +109,13 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
           className="relative md:w-[40%]  "
         >
           <div className="relative    mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-sky-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-            <div className="relative w-full h-full rounded-full bg-gradient-to-r from-indigo-300 to-sky-300 p-1">
-              <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r  from-indigo-400 to-sky-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+            <div className="relative md:w-[470px] md:h-[470px] h-[300px] w-[300px]  rounded-full bg-gradient-to-r from-indigo-300 to-sky-300 p-1">
+              <div className="md:w-[470px] md:h-[470px] h-[300px] w-[300px] rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/123.jpg"
+                  src="/ak.jpg"
                   alt="Akil"
-                  className="w-full h-full object-cover rounded-full"
+                  className="md:w-[470px] md:h-[470px] h-[300px] w-[300px]  object-cover rounded-full"
                 />
               </div>
             </div>

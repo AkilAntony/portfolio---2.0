@@ -53,7 +53,7 @@ const PortfolioMain = () => {
 
 
         {/* Testimonials Section */}
-        <Testimonials />
+        {/* <Testimonials /> */}
 
         {/* Contact Section */}
         <Contact />
