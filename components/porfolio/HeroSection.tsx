@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -13,10 +13,16 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
 
   const router = useRouter();
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <motion.section
       style={{ y, opacity }}
-      className="relative min-h-screen flex items-center    justify-center px-4 sm:px-6 lg:px-8 pt-10"
+      className="relative  bg-white  flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12"
     >
       <div className=" w-full max-w-7xl flex flex-wrap lg:flex-nowrap gap-10 md:gap-3 lg:justify-between justify-center items-center">
         <div className="text-center lg:text-left md:w-[60%]">
@@ -26,11 +32,7 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
             transition={{ duration: 0.8 }}
             className="mb-6 mt-3"
           >
-            {/* shadow-[inset_0_0_1.2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)] */}
-            <span
-              className="px-4 py-2 bg-white/5 text-white shadow-[inset_0_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(31,38,135,0.37)]
-   backdrop-blur-sm    rounded-full  text-sm font-medium"
-            >
+            <span className="px-4 py-2 bg-[#f1f3f4] rounded-full  text-sm font-medium">
               👋 Hello, I'm Akil
             </span>
           </motion.div>
@@ -39,25 +41,32 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
             //   initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white  mb-6 leading-tight"
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold  mb-6 leading-tight"
           >
             Frontend Developer
-            <span className="block bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-[#1a73e8] to-black bg-clip-text text-transparent">
               & UI Designer
             </span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-          >
-            I create exceptional digital experiences that combine beautiful
-            design with powerful functionality. Specializing in React, Next.js,
-            and modern web technologies.
-          </motion.p>
-
+          {mounted ? (
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl  mb-8 max-w-2xl  mx-auto lg:mx-0 leading-relaxed"
+            >
+              I create exceptional digital experiences that combine beautiful
+              design with powerful functionality. Specializing in React,
+              Next.js, and modern web technologies.
+            </motion.p>
+          ) : (
+            <p className="text-xl  mb-8 max-w-2xl  mx-auto lg:mx-0 leading-relaxed">
+              I create exceptional digital experiences that combine beautiful
+              design with powerful functionality. Specializing in React,
+              Next.js, and modern web technologies.
+            </p>
+          )}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,16 +77,20 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => router.push("#projects")}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-400 to-sky-400 rounded-xl text-white font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg shadow-blue-500/25"
+              className=" 
+               rounded-full   max-h-max px-4 py-3 bg-[#1a73e8] border-2 text-white
+               hover:border-transparent text-[14px] border-blue-600 "
             >
               View My Work
-              <ArrowRight className="w-5 h-5 inline ml-2" />
+              <ArrowRight className=" inline ml-2" />
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="  px-8 py-4 text-white bg-white/5 shadow-[inset_0_0_1.2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)]  rounded-xl backdrop-blur-sm  "
+              className=" 
+               rounded-full hover:bg-[#f1f3f4] max-h-max px-4 py-3 bg-white border-2 text-[#1a73e8]
+               hover:border-transparent text-[14px] border-blue-600 "
               onClick={() => router.push("#contact")}
             >
               Get In Touch
@@ -93,10 +106,10 @@ const HeroSection = ({ y, opacity }: { opacity?: any; y?: any }) => {
           >
             {stats.map((stat, index) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
+                <div className="text-2xl sm:text-3xl font-bold   mb-1">
                   {stat.number}
                 </div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
               </div>
             ))}
           </motion.div>

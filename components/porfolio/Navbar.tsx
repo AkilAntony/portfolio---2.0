@@ -7,15 +7,13 @@ const Navbar = () => {
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="     backdrop-blur-[.5px] border-b   border-white/10 shadow-[md] text-white"
+      className=" border-b border-blue-600/40 bg-white/10  "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-sky-400 drop-shadow-sm
-
- bg-clip-text text-transparent"
+            className="text-2xl font-bold text-gray-700 bg-clip-text"
           >
             Akil A L
           </motion.div>
@@ -25,7 +23,7 @@ const Navbar = () => {
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 whileHover={{ scale: 1.05 }}
-                className="text-gray-300 hover:text-white transition-colors duration-300"
+                className="text-gray-600 hover:text-black text-[14px]"
               >
                 {item}
               </motion.a>
@@ -36,7 +34,9 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
             href="/Akil_FrontendDeveloper.pdf"
             download
-            className="inline-flex items-center px-4 py-2 bg-white/5 shadow-[inset_0_0_1.2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)]  rounded-md backdrop-blur-sm  "
+            className="inline-flex items-center px-4 py-1
+               rounded-full hover:bg-[#f1f3f4]  bg-white border-2 text-[#1a73e8]
+               hover:border-transparent text-[14px] border-blue-600   "
           >
             <Download className="w-4 h-4 mr-2" />
             Resume

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
     {
@@ -34,17 +35,6 @@ const projects = [
     live: "https://image-cropper-two.vercel.app/",
     featured: true,
   },
-
-  // {
-  //   title: "Weather Dashboard",
-  //   description:
-  //     "Beautiful weather application with location-based forecasts and interactive maps.",
-  //   tech: ["React", "OpenWeather API", "Mapbox", "Chart.js"],
-  //   image: "/placeholder.svg?height=400&width=600&text=Weather+Dashboard",
-  //   github: "#",
-  //   live: "#",
-  //   featured: false,
-  // },
 ];
 
 const Projects = () => {
@@ -55,7 +45,7 @@ const Projects = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="relative py-20 px-4 sm:px-6 lg:px-8"
+      className="relative py-12 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
         <motion.h2
@@ -63,13 +53,13 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-white mb-16 text-center"
+          className="text-3xl sm:text-4xl font-bold "
         >
           Featured Projects
         </motion.h2>
 
         {/* Featured Projects */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid lg:grid-cols-2 gap-6 py-9">
           {projects
             .map((project, index) => (
               <motion.div
@@ -79,12 +69,16 @@ const Projects = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
-                className="backdrop-blur-sm bg-white/5 shadow-[inset_0_0_2px_1.2px_rgba(255,255,255,0.3),0_8px_32px_rgba(31,38,135,.20)] rounded-3xl overflow-hidden group hover:bg-white/10 transition-all duration-300"
+                className=" rounded-[20px] border border-gray-200 overflow-hidden group bg-white 
+                transition-all duration-300"
               >
                 <div className="relative overflow-hidden">
-                  <img
+                  <Image
+                  width={100}
+                  height={64}
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
+                    priority
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                  { project.featured && <><div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -97,10 +91,10 @@ const Projects = () => {
                 </div>
 
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                  <h3 className="text-2xl font-bold  mb-4">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="  mb-6 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -108,7 +102,7 @@ const Projects = () => {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 backdrop-blur-xl bg-white/10 border border-white/20 rounded-full text-xs text-blue-300 font-medium"
+                        className="px-3 py-1 border rounded-full text-xs bg-[#F5F6F6] font-medium"
                       >
                         {tech}
                       </span>
@@ -121,7 +115,7 @@ const Projects = () => {
                       target="_blank"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl text-gray-300 hover:text-white hover:bg-white/20 transition-all duration-300"
+                      className="p-3    border-2 border-blue-600 rounded-full text-[#1a73e8] hover:border-transparent transition-all duration-300"
                     >
                       <Github className="w-5 h-5" />
                     </motion.a>
@@ -130,7 +124,7 @@ const Projects = () => {
                       href={project.live}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl text-gray-300 hover:text-white hover:bg-white/20 transition-all duration-300"
+                      className="p-3    border-2 border-blue-600 rounded-full text-[#1a73e8] hover:border-transparent transition-all duration-300"
                     >
                       <ExternalLink className="w-5 h-5" />
                     </motion.a>

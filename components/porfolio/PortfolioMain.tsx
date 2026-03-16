@@ -1,16 +1,18 @@
 "use client";
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
-import About from "./About";
-import Footer from "./Footer";
-import Experience from "./Experience";
-import MyServices from "./MyServices";
-import Contact from "./Contact";
-import Projects from "./Projects";
-import Testimonials from "./Testimonials";
+import dynamic from "next/dynamic";
+
+const Projects = dynamic(() => import("./Projects"));
+const Contact = dynamic(() => import("./Contact"));
+const MyServices = dynamic(() => import("./MyServices"));
+const Experience = dynamic(() => import("./Experience"));
+const Education = dynamic(() => import("./Education"));
+const Footer = dynamic(() => import("./Footer"));
+const About = dynamic(() => import("./About"));
 
 const PortfolioMain = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,46 +24,46 @@ const PortfolioMain = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
   return (
-     
-      <div
-        ref={containerRef}
-        className="h-[100vh] overflow-y-auto  overflow-x-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0e0f11]  backdrop-blur-sm "
-      >
-        {/* Navigation */}
-        <div className="sticky z-[50] backdrop-blur-xl top-0 ">
-          <Navbar />
-        </div>
-
-        {/* Hero Section */}
-        <HeroSection y={y} opacity={opacity} />
-
-        {/* About Section */}
-        <div className="mt-5 md:mt-0">
-          <About />
-        </div>
-
-
-
-        {/* Experience Section */}
-        <Experience />
-
-        {/* Services Section */}
-        <MyServices/>
-
-        {/* Projects Section */}
-        <Projects />
-
-
-        {/* Testimonials Section */}
-        {/* <Testimonials /> */}
-
-        {/* Contact Section */}
-        <Contact />
-
-        {/* Footer */}
-        <Footer />
+    //  #F5F6F6
+    <div
+      ref={containerRef}
+      className="h-[100vh] overflow-y-auto  overflow-x-hidden
+         bg-[#F5F6F6] #F5F6F6   backdrop-blur-sm "
+      style={{
+        fontFamily: "sans-serif",
+      }}
+    >
+      {/* Navigation */}
+      <div className="sticky z-10 backdrop-blur-lg top-0 ">
+        <Navbar />
       </div>
-   
+
+      {/* Hero Section */}
+      <HeroSection y={y} opacity={opacity} />
+
+      {/* About Section */}
+      <div className="mt-5 md:mt-0">
+        <About />
+      </div>
+
+      {/* Experience Section */}
+      <Experience />
+
+      <Education />
+
+      {/* Services Section */}
+      <MyServices />
+
+      {/* Projects Section */}
+      <Projects />
+
+      <hr />
+      {/* Contact Section */}
+      <Contact />
+
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 };
 
