@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { domAnimation, LazyMotion, motion } from "framer-motion";
 import { Linkedin, Mail, Phone } from "lucide-react";
  
 const Footer = () => {
@@ -17,6 +17,7 @@ const Footer = () => {
             <p className="">Software Enginer</p>
           </div>
           <div className="flex space-x-6">
+          <LazyMotion features={domAnimation}>
             <motion.a
               href="tel:+917094425793"
               whileHover={{ scale: 1.1 }}
@@ -38,6 +39,7 @@ const Footer = () => {
             >
               <Mail className="w-5 h-5" />
             </motion.a>
+            </LazyMotion>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t  text-center">

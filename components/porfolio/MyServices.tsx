@@ -1,6 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Code,Server, Zap } from "lucide-react";
+import { domAnimation, LazyMotion, motion } from "framer-motion";
+import { Code, Server, Zap } from "lucide-react";
 
 const services = [
   {
@@ -39,56 +39,58 @@ const services = [
 
 const MyServices = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="relative py-12 px-4 bg-white sm:px-6 lg:px-8"
-    >
-      <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold"
-        >
-          What I Do
-        </motion.h2>
+    <LazyMotion features={domAnimation}>
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative py-12 px-4 bg-white sm:px-6 lg:px-8"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl font-bold"
+          >
+            What I Do
+          </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-6 py-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="  bg-[#f5f6f7] rounded-[20px] p-6    "
-            >
-              <div className="flex items-center  gap-3 ">
-                <div className="p-4  bg-[#1a73e8] text-white rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-5 h-5" />
+          <div className="grid md:grid-cols-3 gap-6 py-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="  bg-[#f5f6f7] rounded-[20px] p-6    "
+              >
+                <div className="flex items-center  gap-3 ">
+                  <div className="p-4  bg-[#1a73e8] text-white rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">{service.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              </div>
 
-              <p className="  mb-6 leading-relaxed">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center  text-sm">
-                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                <p className="  mb-6 leading-relaxed">{service.description}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center  text-sm">
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </motion.section>
+      </motion.section>
+    </LazyMotion>
   );
 };
 

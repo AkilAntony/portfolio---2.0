@@ -5,14 +5,15 @@ import { useRef } from "react";
 import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import dynamic from "next/dynamic";
+import About from "@/components/porfolio/About";
+import Experience from "@/components/porfolio/Experience";
 
 const Projects = dynamic(() => import("./Projects"));
 const Contact = dynamic(() => import("./Contact"));
 const MyServices = dynamic(() => import("./MyServices"));
-const Experience = dynamic(() => import("./Experience"));
 const Education = dynamic(() => import("./Education"));
 const Footer = dynamic(() => import("./Footer"));
-const About = dynamic(() => import("./About"));
+ 
 
 const PortfolioMain = () => {
   const containerRef = useRef<HTMLDivElement>(null);
