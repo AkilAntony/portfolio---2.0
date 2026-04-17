@@ -5,6 +5,25 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "Club Travalet",
+    description:
+ "A travel web application that allows users to book flights, hotels, tour packages, and insurance online. I contributed to the flight booking module, focusing on building a smooth and user-friendly booking experience.",
+      tech: ["Next.js", "Typescript", "Zustand", "React Query" ,"TailwindCSS", "Shadcn"],
+    image: "/clubtravalet.png",
+    // github: "https://github.com/AkilAntony/image-cropper",
+    live: "https://clubtravalet.com/?tab=flight",
+    featured: true,
+  },
+  {
+    title: "Swakriti",
+    description:
+      "AI-powered e-commerce platform for children’s clothing featuring virtual try-on, intelligent size prediction, and personalized recommendations to enhance fit accuracy and user experience.",
+    tech: ["Next.js", "Zustand", "Typescript", "TailwindCSS"],
+    image: "/swakriti.png",
+    live: "https://swakriti.fashion/",
+    featured: true,
+  },
+  {
     title: "QR Code Generator",
     description:
       "A web app that lets users generate QR codes for any URL and download the image easily. Simple, fast, and user-friendly.",
@@ -33,8 +52,9 @@ const projects = [
     image: "/imageCropper.png",
     github: "https://github.com/AkilAntony/image-cropper",
     live: "https://image-cropper-two.vercel.app/",
-    featured: true,
+    featured: false,
   },
+
 ];
 
 const Projects = () => {
@@ -111,7 +131,7 @@ const Projects = () => {
                   </div>
 
                   <div className="flex space-x-4">
-                    <motion.a
+                {   project.github && <motion.a
                       href={project.github}
                       target="_blank"
                       whileHover={{ scale: 1.1 }}
@@ -119,7 +139,7 @@ const Projects = () => {
                       className="p-3    border-2 border-blue-600 rounded-full text-[#1a73e8] hover:border-transparent transition-all duration-300"
                     >
                       <Github className="w-5 h-5" />
-                    </motion.a>
+                    </motion.a>}
                     <motion.a
                       target="_blank"
                       href={project.live}
